@@ -9,6 +9,8 @@ package mx.com.proyecti;
 //Conceptos de Programación Orientada a Objetos (POO)
 // -- Abstracción: Extraer información del mundo real y pasarlo a un contexto programable
 // -- Encapsulamiento: Envolver u ocultar una implementación de nuesto código
+// -- Herencia: Heredar las características del padre
+// -- Polimorfismo: Asignar diferentes comportamientos a un objeto
 
 public class Employee {
 	// datos o atributos: definir las características de mi clase
@@ -55,5 +57,11 @@ public class Employee {
 		super();
 	}
 	
+	public String getDetails() {
+		return "id " + this.id + ", name " + this.name + ", ssn  " + this.ssn + ", salary " + this.salary;
+	}
 	
+	public double calcBonus() {
+		return this.getSalary() * GoodBonus.getBonusPercent(this);
+	}
 }
