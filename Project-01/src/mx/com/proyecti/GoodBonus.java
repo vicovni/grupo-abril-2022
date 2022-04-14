@@ -7,6 +7,9 @@ public class GoodBonus {
 		if(employee instanceof Director) {
 			return 0.05;
 		} else if(employee instanceof Manager) {
+			Manager manager = (Manager) employee;
+			System.out.println(manager.getDeptName());
+			
 			return 0.02;
 		} else {
 			return 0.01;

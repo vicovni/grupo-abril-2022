@@ -18,6 +18,14 @@ public class EmployeeImpl {
 		
 		System.out.println(employee.getDetails());
 		System.out.println(manager.getDetails());
+		
+		EmployeeImpl.hola();
+		
+		
+	}
+	
+	public static void hola() {
+		System.out.println("hola");
 	}
 
 }
