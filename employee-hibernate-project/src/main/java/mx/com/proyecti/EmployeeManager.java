@@ -84,7 +84,7 @@ public class EmployeeManager {
 	}
 
 	/* Method to UPDATE salary for an employee */
-	public void updateEmployee(long id, int salary ){
+	public void updateEmployee(long id, double salary ){
 		Session session = factory.openSession();
 		Transaction tx = null;
 
@@ -100,6 +100,27 @@ public class EmployeeManager {
 		} finally {
 			session.close(); 
 		}
+	}
+	
+	public void updateEmployee(long id, String firstName, String lastName, Date birthdate, double salary) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			Employee employee = (Employee)session.get(Employee.class, id); 
+			employee.setFirstName(firstName);
+			employee.setLastName(lastName);
+			employee.setBirthdate(birthdate);
+			employee.setSalary(salary);
+			session.persist(employee); 
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx!=null) tx.rollback();
+			e.printStackTrace(); 
+		} finally {
+			session.close(); 
+		}		
 	}
 
 	/* Method to DELETE an employee from the records */
