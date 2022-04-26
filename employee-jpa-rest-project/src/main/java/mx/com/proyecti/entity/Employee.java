@@ -2,12 +2,13 @@ package mx.com.proyecti.entity;
 
 import java.util.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 
 //Anotaciones son metadatos que relacionan los datos con algún otro componente de mi aplicación
 @Entity //Voy a relacionar a la clase Employee como una entidad definida en una base de datos
@@ -60,6 +61,11 @@ public class Employee {
 		this.birthdate = birthdate;
 		this.salary = salary;
 	}
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	
 }
