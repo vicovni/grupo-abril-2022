@@ -2,6 +2,7 @@ package mx.com.proyecti.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,9 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_generator")
 	@SequenceGenerator(name = "employee_generator", sequenceName = "EMPLOYEE_SEQUENCE", allocationSize = 1)
 	private long id;
+	@Column(name="firstname")
 	private String firstName;
+	@Column(name="lastname")
 	private String lastName;
 	private Date birthdate;
 	private double salary;
