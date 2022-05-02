@@ -24,27 +24,33 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
-	@GetMapping("/employee") //Definir un endpoint que utilizará la operación GET
+	@GetMapping("/employees") //Definir un endpoint que utilizará la operación GET
 	List<Employee> getAllEmployees(){
 		return employeeService.getAllEmployees();
 	}
 
-	@PostMapping("/employees")
-	Long insertEmployee(@RequestBody Employee employee) {
+	@PostMapping("/employees") //Definir un endpoint para crear elementos, utiliza la operación POST
+	Long insertEmployee(
+			@RequestBody Employee employee //@RequestBody indica que el parámetro de entrada viajará en el cuerpo del mensaje
+			) {
 		return employeeService.insertEmployee(employee);
 	}
 	
-	@GetMapping("/employees/{id}")
-	Employee getEmployee(@PathVariable Long id) {
+	@GetMapping("/employees/{id}") // GET
+	Employee getEmployee(
+			@PathVariable Long id //@PathVariable indica que el parámetro de entrada viajará como parte de la URL del endpoint
+									//http://localhost:8090/api/employees/1
+			) {
+		System.out.println("Get employee");
 		return employeeService.getEmployee(id);
 	}
 	
-	@PutMapping("/employees")
+	@PutMapping("/employees") // Definir un endpoint para actualizar elementos, utiliza la operación PUT
 	Boolean updateEmployee(@RequestBody Employee employee) {
 		return employeeService.updateEmployee(employee);
 	}
 
-	@DeleteMapping("/employees/{id}")
+	@DeleteMapping("/employees/{id}") // Define un endpoint para eliminar elementos, utiliza la operación DELETE
 	Boolean deleteEmployee(@PathVariable Long id) {
 		return employeeService.deleteEmployee(id);
 	}
